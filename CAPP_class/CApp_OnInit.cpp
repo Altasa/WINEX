@@ -23,10 +23,10 @@ bool CApp::OnInit(){
     //Получение поверхности окна
     Surf_Display=SDL_GetWindowSurface(Window);
     //Загрузка поверхностей изображений
-    if(Entity1.OnLoad("entity1.png", Surf_Display, 64, 64, 7)==false){
+    if(Entity1.OnLoad("PNG_Imgs/entity1.png", Surf_Display, 64, 64, 7)==false){
         return false;
     }
-    if(Entity2.OnLoad("entity2.png", Surf_Display, 64, 64, 7)==false){
+    if(Entity2.OnLoad("PNG_Imgs/entity2.png", Surf_Display, 64, 64, 7)==false){
         return false;
     }
     //Установка координат сущностей, по умолчанию 0, 0

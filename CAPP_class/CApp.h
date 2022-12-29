@@ -2,13 +2,13 @@
     #define _CAPP_H_
 #include <SDL.h>
 //Подключение класса Поверхность
-#include "CSurface.h"
+#include "../CSurface.h"
 //Подключение класса Анимация
-#include "CAnimation.h"
+#include "../CAnimation.h"
 //Подключение класса Событие
-#include "CEvent.h"
+#include "../CEvent.h"
 //Подключение класса Сущность
-#include "CEntity.h"
+#include "../CEntity.h"
 //Класс Приложение
 class CApp : public CEvent{
     //Поля класса

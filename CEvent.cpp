@@ -127,35 +127,7 @@ void CEvent::OnInputBlur() {
     //Pure virtual, do nothing
 }
 void CEvent::OnKeyDown(SDL_Keycode sym, Uint16 unicode) {
-    switch (sym)
-    {
-        case SDLK_ESCAPE:
-        {
-            cout << "Hey, HABR! Escape pressed by m0sk1t\n";
-            break;
-        }
-        case SDLK_UP:
-        {
-            cout << "Hey, HABR! UP pressed by m0sk1t\n";
-            break;
-        }
-        case SDLK_DOWN:
-        {
-            cout << "Hey, HABR! DOWN pressed by m0sk1t\n";
-            break;
-        }
-        case SDLK_LEFT:
-        {
-            cout << "Hey, HABR! LEFT pressed by m0sk1t\n";
-            break;
-        }
-        case SDLK_RIGHT:
-        {
-            cout << "Hey, HABR! RIGHT pressed by m0sk1t\n";
-            break;
-        }
-        default: break;
-    }
+    //Pure virtual, do nothing
 }
 void CEvent::OnKeyUp(SDL_Keycode sym, Uint16 unicode) {
     //Pure virtual, do nothing

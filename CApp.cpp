@@ -1,11 +1,11 @@
 //Подключение всех компонентов
 //Подключение класса Приложение
-#include "CApp.h"
-#include "CApp_OnInit.cpp"
-#include "CApp_OnEvent.cpp"
-#include "CApp_OnLoop.cpp"
-#include "CApp_OnRender.cpp"
-#include "CApp_OnCleanup.cpp"
+#include "CAPP_class/CApp.h"
+#include "CAPP_class/CApp_OnInit.cpp"
+#include "CAPP_class/CApp_OnEvent.cpp"
+#include "CAPP_class/CApp_OnLoop.cpp"
+#include "CAPP_class/CApp_OnRender.cpp"
+#include "CAPP_class/CApp_OnCleanup.cpp"
 //Подключение класса Поверхность
 #include "CSurface.h"
 #include "CSurface.cpp"
@@ -18,7 +18,7 @@
 //Подключение класса Сущность
 #include "CEntity.h"
 #include "CEntity.cpp"
-//Определение конструктора
+//Определение конструктора приложения
 CApp::CApp(){
     //Флаг выполнения исполнителя процесса
     Running=true;
