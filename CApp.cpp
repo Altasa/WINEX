@@ -1,3 +1,4 @@
+//Подключение всех компонентов
 //Подключение класса Приложение
 #include "CApp.h"
 #include "CApp_OnInit.cpp"
@@ -5,6 +6,12 @@
 #include "CApp_OnLoop.cpp"
 #include "CApp_OnRender.cpp"
 #include "CApp_OnCleanup.cpp"
+//Подключение класса Поверхность
+#include "CSurface.h"
+#include "CSurface.cpp"
+//Подключение класса Событие
+#include "CEvent.h"
+#include "CEvent.cpp"
 //Определение конструктора
 CApp::CApp(){
     //Флаг выполнения исполнителя процесса

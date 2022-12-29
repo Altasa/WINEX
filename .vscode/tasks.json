@@ -4,7 +4,7 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: g++.exe build active file",
-			"command": "C:\\MinGW\\bin\\g++.exe",
+			"command": "C:\\TDM-GCC-64\\bin\\g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
@@ -16,19 +16,20 @@
 				//Подключение библиотек 
 				"-L${fileDirname}\\lib",
 				"-lSDL2_image",
-				"-lmingw32",
 				"-lSDL2main",
 				"-lSDL2",
-				"-mwindows"
+				//Отключение консольного терминала
+				//Сейчас выключено для отладки
+				//"-mwindows"
 			],
 			"options": {
-				"cwd": "C:\\MinGW\\bin"
+				"cwd": "${fileDirname}"
 			},
 			"problemMatcher": [
 				"$gcc"
 			],
 			"group": "build",
-			"detail": "compiler: C:\\MinGW\\bin\\g++.exe"
+			"detail": "compiler: C:\\TDM-GCC-64\\bin\\g++.exe"
 		}
 	]
 }

@@ -3,9 +3,10 @@
 #include <SDL.h>
 //Подключение класса Поверхность
 #include "CSurface.h"
-#include "CSurface.cpp"
+//Подключение класса Событие
+#include "CEvent.h"
 //Класс Приложение
-class CApp{
+class CApp : public CEvent{
     //Поля класса
     private:
         //Флаг выполнения исполнителя процесса
@@ -32,6 +33,8 @@ class CApp{
         bool OnInit();
         //Обработчик события
         void OnEvent(SDL_Event* Event);
+        //Инициатор завершения работы
+        void OnExit();
         //Обработчик логики
         void OnLoop();
         //Отрисовщик
