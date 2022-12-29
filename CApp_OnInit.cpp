@@ -29,7 +29,12 @@ bool CApp::OnInit(){
     if((Surf_XO=CSurface::OnLoad("xo.png", Surf_Display))==NULL){
         return false;
     }
+    if((Surf_Yoshi=CSurface::OnLoad("yoshi.png", Surf_Display))==NULL){
+        return false;
+    }
     //Инициализация данных приложения
     Reset();
+    Anim_Yoshi.MaxFrames=8;
+    Anim_Yoshi.Oscillate=true;
     return true;
 }

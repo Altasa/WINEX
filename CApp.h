@@ -3,6 +3,8 @@
 #include <SDL.h>
 //Подключение класса Поверхность
 #include "CSurface.h"
+//Подключение класса Анимация
+#include "CAnimation.h"
 //Подключение класса Событие
 #include "CEvent.h"
 //Класс Приложение
@@ -18,7 +20,9 @@ class CApp : public CEvent{
         //Поверхности приложения
         SDL_Surface* Surf_Grid;
         SDL_Surface* Surf_XO;
+        SDL_Surface* Surf_Yoshi;
         //Данные приложения
+        CAnimation Anim_Yoshi;//Анимация
         int CurrentPlayer;//ИД игрока
         int Grid[9];//Массив ячеек
         enum{//Статусы ячеек

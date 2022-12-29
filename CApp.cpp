@@ -9,6 +9,9 @@
 //Подключение класса Поверхность
 #include "CSurface.h"
 #include "CSurface.cpp"
+//Подключение класса Анимация
+#include "CAnimation.h"
+#include "CAnimation.cpp"
 //Подключение класса Событие
 #include "CEvent.h"
 #include "CEvent.cpp"
@@ -23,11 +26,12 @@ CApp::CApp(){
     //Поверхности приложения
     Surf_Grid=NULL;
     Surf_XO=NULL;
+    Surf_Yoshi=NULL;
     //Данные приложения
     CurrentPlayer=0;
     //Размер окна ширина высота
     SCREEN_WIDTH=300;
-    SCREEN_HEIGHT=300; 
+    SCREEN_HEIGHT=364; 
 }
 //Определение исполнителя процесса
 int CApp::OnExecute(){
@@ -43,6 +47,7 @@ int CApp::OnExecute(){
         }
         OnLoop();
         OnRender();
+        SDL_Delay(40);//Задержка на 1/25 сек
     }
     OnCleanup();
     return 0;
