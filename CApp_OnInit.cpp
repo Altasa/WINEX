@@ -23,8 +23,13 @@ bool CApp::OnInit(){
     //Получение поверхности окна
     Surf_Display=SDL_GetWindowSurface(Window);
     //Загрузка поверхностей изображений
-    if((Surf_Test=CSurface::OnLoad("img1.png", Surf_Display))==NULL){
+    if((Surf_Grid=CSurface::OnLoad("bkg.png", Surf_Display))==NULL){
         return false;
     }
+    if((Surf_XO=CSurface::OnLoad("xo.png", Surf_Display))==NULL){
+        return false;
+    }
+    //Инициализация данных приложения
+    Reset();
     return true;
 }

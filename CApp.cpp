@@ -21,10 +21,13 @@ CApp::CApp(){
     //Поверхность окна
     Surf_Display=NULL;
     //Поверхности приложения
-    Surf_Test=NULL;
+    Surf_Grid=NULL;
+    Surf_XO=NULL;
+    //Данные приложения
+    CurrentPlayer=0;
     //Размер окна ширина высота
-    SCREEN_WIDTH=640;
-    SCREEN_HEIGHT=480; 
+    SCREEN_WIDTH=300;
+    SCREEN_HEIGHT=300; 
 }
 //Определение исполнителя процесса
 int CApp::OnExecute(){
@@ -43,6 +46,22 @@ int CApp::OnExecute(){
     }
     OnCleanup();
     return 0;
+}
+//Обнуление массива ячеек
+void CApp::Reset(){
+    for(int i=0;i<9;i++){
+        Grid[i]=GRID_TYPE_NONE;
+    }
+}
+//Установка статуса ячейки
+void CApp::SetCell(int ID, int Type){
+    if(ID<0 || ID>=9){
+        return;
+    }
+    if(Type<0 || Type> GRID_TYPE_O){
+        return;
+    }
+    Grid[ID]=Type;
 }
 //Задание точки входа
 int main(int argc, char* argv[]){

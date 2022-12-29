@@ -16,7 +16,16 @@ class CApp : public CEvent{
         //Поверхность окна
         SDL_Surface* Surf_Display;
         //Поверхности приложения
-        SDL_Surface* Surf_Test;
+        SDL_Surface* Surf_Grid;
+        SDL_Surface* Surf_XO;
+        //Данные приложения
+        int CurrentPlayer;//ИД игрока
+        int Grid[9];//Массив ячеек
+        enum{//Статусы ячеек
+            GRID_TYPE_NONE=0,
+            GRID_TYPE_X,
+            GRID_TYPE_O
+        };
         //Размер окна ширина высота
         int SCREEN_WIDTH;
         int SCREEN_HEIGHT; 
@@ -31,8 +40,9 @@ class CApp : public CEvent{
     public:
         //Инициализация
         bool OnInit();
-        //Обработчик события
+        //Обработчики событий
         void OnEvent(SDL_Event* Event);
+        void OnLButtonDown(int mX, int mY);
         //Инициатор завершения работы
         void OnExit();
         //Обработчик логики
@@ -41,5 +51,11 @@ class CApp : public CEvent{
         void OnRender();
         //Освобождение памяти
         void OnCleanup();
+    //Методы приложения
+    public:
+        //Обнуление массива ячеек
+        void Reset();
+        //Установка статуса ячейки
+        void SetCell(int ID, int Type);
 };
 #endif
