@@ -47,7 +47,7 @@ int CApp::OnExecute(){
         }
         OnLoop();
         OnRender();
-        SDL_Delay(40);//Задержка на 1/25 сек
+        SDL_Delay(40);//25fps window
     }
     OnCleanup();
     return 0;

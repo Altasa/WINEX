@@ -34,7 +34,7 @@ bool CApp::OnInit(){
     }
     //Инициализация данных приложения
     Reset();
-    Anim_Yoshi.MaxFrames=8;
-    Anim_Yoshi.Oscillate=true;
+    Anim_Yoshi.MaxFrames=7;
+    Anim_Yoshi.Oscillate=false;
     return true;
 }

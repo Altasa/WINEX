@@ -1,10 +1,11 @@
 #include "CAnimation.h"
 CAnimation::CAnimation(){
-    CurrentFrame= 0;
+    CurrentFrame= -1;
     MaxFrames=    0;
     FrameInc=     1;
 
-    FrameRate=    100;//milliseconds
+    //milliseconds,fps 40=25 100=10
+    FrameRate=    100;
     OldTime=      0;
     
     Oscillate=    false;
@@ -26,7 +27,7 @@ void CAnimation::OnAnimate(){
             }
         }
     }else{
-        if(CurrentFrame>=MaxFrames){
+        if(CurrentFrame>MaxFrames){
             CurrentFrame=0;
         }
     }

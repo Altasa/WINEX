@@ -12,6 +12,6 @@ void CApp::OnRender(){
                     break;
             }
         }
-    CSurface::OnDraw(Surf_Display, Surf_Yoshi, 0, 300, Anim_Yoshi.GetCurrentFrame()*64, 0, 64, 64);
+    CSurface::OnDraw(Surf_Display, Surf_Yoshi, 0, 300, 0, Anim_Yoshi.GetCurrentFrame()*64, 64, 64);
     SDL_UpdateWindowSurface(Window);
 }

@@ -19,8 +19,7 @@
 				"-lSDL2main",
 				"-lSDL2",
 				//Отключение консольного терминала
-				//Сейчас выключено для отладки
-				//"-mwindows"
+				"-mwindows"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
