@@ -2,20 +2,20 @@
     #define _CSURFACE_H_
 #include <SDL.h>
 #include <SDL_image.h>
-//Класс Поверхность
+//РљР»Р°СЃСЃ РџРѕРІРµСЂС…РЅРѕСЃС‚СЊ
 class CSurface{
-    //Методы класса
+    //РњРµС‚РѕРґС‹ РєР»Р°СЃСЃР°
     public:
-        //Конструктор
+        //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
         CSurface();
     public:
-        //Инициализация библиотеки SDL2_image
+        //РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Р±РёР±Р»РёРѕС‚РµРєРё SDL2_image
         static bool ImgInit();
-        //Загрузчик изображения PNG
+        //Р—Р°РіСЂСѓР·С‡РёРє РёР·РѕР±СЂР°Р¶РµРЅРёСЏ PNG
         static SDL_Surface* OnLoad(const char* File, SDL_Surface* Surf_Display);
-        //Отображение поверхности
+        //РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
         static bool OnDraw(SDL_Surface* Surd_Dest, SDL_Surface* Surf_Src, int X, int Y);
-        //Отображение части поверхности
+        //РћС‚РѕР±СЂР°Р¶РµРЅРёРµ С‡Р°СЃС‚Рё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
         static bool OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y, int X2, int Y2, int W, int H);
 };
 #endif

@@ -1,30 +1,30 @@
 #include "CSurface.h"
-//Определение конструктора
+//РћРїСЂРµРґРµР»РµРЅРёРµ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 CSurface::CSurface(){
 
 }
-//Определение Инициализации библиотеки SDL2_image
+//РћРїСЂРµРґРµР»РµРЅРёРµ РРЅРёС†РёР°Р»РёР·Р°С†РёРё Р±РёР±Р»РёРѕС‚РµРєРё SDL2_image
 bool CSurface::ImgInit(){
-    //Выбоор модуля загрузки изображения PNG
+    //Р’С‹Р±РѕРѕСЂ РјРѕРґСѓР»СЏ Р·Р°РіСЂСѓР·РєРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ PNG
     int flags=IMG_INIT_PNG;
     if(!(IMG_Init(flags)&flags)){
         return false;
     }
     return true;
 }
-//Определение загрузчика изображения PNG
+//РћРїСЂРµРґРµР»РµРЅРёРµ Р·Р°РіСЂСѓР·С‡РёРєР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ PNG
 SDL_Surface* CSurface::OnLoad(const char* File, SDL_Surface* Surf_Display){
     SDL_Surface* Surf_Temp=NULL;
-    //Загрузка изображения PNG
+    //Р—Р°РіСЂСѓР·РєР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ PNG
     Surf_Temp=IMG_Load(File);
     if(Surf_Temp==NULL){
         return NULL;
     }
-    //Приведение поверхности к формату окна
+    //РџСЂРёРІРµРґРµРЅРёРµ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё Рє С„РѕСЂРјР°С‚Сѓ РѕРєРЅР°
     Surf_Temp=SDL_ConvertSurface(Surf_Temp, Surf_Display->format, 0);
     return Surf_Temp;
 }
-//Определение отображения поверхности
+//РћРїСЂРµРґРµР»РµРЅРёРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
 bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y) {
     if(Surf_Dest==NULL || Surf_Src==NULL)
         return false;
@@ -34,7 +34,7 @@ bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int 
     SDL_BlitSurface(Surf_Src, NULL, Surf_Dest, &DestR);
     return true;
 }
-//Определение отображения части поверхности
+//РћРїСЂРµРґРµР»РµРЅРёРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С‡Р°СЃС‚Рё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
 bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y, int X2, int Y2, int W, int H){
     if(Surf_Dest==NULL || Surf_Src==NULL)
         return false;

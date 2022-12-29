@@ -1,14 +1,14 @@
 #include "CApp.h"
 bool CApp::OnInit(){
-    //Подключение компонентов библиотеки SDL2
+    //РџРѕРґРєР»СЋС‡РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ Р±РёР±Р»РёРѕС‚РµРєРё SDL2
     if(SDL_Init(SDL_INIT_EVERYTHING)<0){
         return false;
     }
-    //Подключение компонентов библиотеки SDL2_image
+    //РџРѕРґРєР»СЋС‡РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ Р±РёР±Р»РёРѕС‚РµРєРё SDL2_image
     if(CSurface::ImgInit() == false){
         return false;
     }
-    //Создание окна приложения
+    //РЎРѕР·РґР°РЅРёРµ РѕРєРЅР° РїСЂРёР»РѕР¶РµРЅРёСЏ
     Window = SDL_CreateWindow(
         "CApp.exe",
         SDL_WINDOWPOS_UNDEFINED, 
@@ -20,21 +20,19 @@ bool CApp::OnInit(){
     if(Window==NULL){
         return false;
     }
-    //Получение поверхности окна
+    //РџРѕР»СѓС‡РµРЅРёРµ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РѕРєРЅР°
     Surf_Display=SDL_GetWindowSurface(Window);
-    //Загрузка поверхностей изображений
-    if((Surf_Grid=CSurface::OnLoad("bkg.png", Surf_Display))==NULL){
+    //Р—Р°РіСЂСѓР·РєР° РїРѕРІРµСЂС…РЅРѕСЃС‚РµР№ РёР·РѕР±СЂР°Р¶РµРЅРёР№
+    if(Entity1.OnLoad("entity1.png", Surf_Display, 64, 64, 7)==false){
         return false;
     }
-    if((Surf_XO=CSurface::OnLoad("xo.png", Surf_Display))==NULL){
+    if(Entity2.OnLoad("entity2.png", Surf_Display, 64, 64, 7)==false){
         return false;
     }
-    if((Surf_Yoshi=CSurface::OnLoad("yoshi.png", Surf_Display))==NULL){
-        return false;
-    }
-    //Инициализация данных приложения
-    Reset();
-    Anim_Yoshi.MaxFrames=7;
-    Anim_Yoshi.Oscillate=false;
+    //РЈСЃС‚Р°РЅРѕРІРєР° РєРѕРѕСЂРґРёРЅР°С‚ СЃСѓС‰РЅРѕСЃС‚РµР№, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 0, 0
+    Entity2.X=100;
+    //Р—Р°РїРёСЃСЊ СЃСѓС‰РЅРѕСЃС‚РµР№ РІ СЃРїРёСЃРѕРє
+    CEntity::EntityList.push_back(&Entity1);
+    CEntity::EntityList.push_back(&Entity2);
     return true;
 }
