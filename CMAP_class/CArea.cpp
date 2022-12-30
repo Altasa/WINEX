@@ -1,4 +1,5 @@
 #include "CArea.h"
+#include <cstdio>
 //Определение объекта контроля площади
 CArea CArea::AreaControl;
 //Определение конструктора площади
@@ -75,4 +76,27 @@ void CArea::OnCleanup(){
         Surf_Tileset=NULL;
     }
     MapList.clear();
+}
+//Вычислить адрес карты
+CMap* CArea::GetMap(int X, int Y){
+    int MapWidth=MAP_WIDTH*TILE_SIZE;
+    int MapHeight=MAP_HEIGHT*TILE_SIZE;
+    int ID=X/MapWidth;
+    ID=ID+((Y/MapHeight)*AreaSize);
+    if(ID<0 || ID>=MapList.size()){
+        return NULL;
+    }
+    return &MapList[ID];
+}
+//Вычислить адрес тайла в площади
+CTile* CArea::GetTile(int X, int Y){
+    int MapWidth=MAP_WIDTH*TILE_SIZE;
+    int MapHeight=MAP_HEIGHT*TILE_SIZE;
+    CMap* Map=GetMap(X, Y);
+    if(Map==NULL){
+        return NULL;
+    }
+    X=X%MapWidth;
+    Y=Y%MapHeight;
+    return Map->GetTile(X, Y);
 }

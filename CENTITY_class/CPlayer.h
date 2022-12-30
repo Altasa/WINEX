@@ -1,0 +1,16 @@
+#ifndef _CPLAYER_H_
+    #define _CPLAYER_H_
+#include "CEntity.h"
+//Класс Игрок
+class CPlayer : public CEntity{
+    public:
+        //Конструктор игрока
+        CPlayer();
+        bool OnLoad(const char* File, SDL_Surface* Surf_Display, int Width, int Height, int MaxFrames);
+        void OnLoop();
+        void OnRender(SDL_Surface* Surf_Display);
+        void OnCleanup();
+        void OnAnimate();
+        void OnCollision(CEntity* Entity);
+};
+#endif

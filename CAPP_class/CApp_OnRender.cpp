@@ -4,8 +4,8 @@ void CApp::OnRender(){
     CSurface::OnDraw(Surf_Display, Surf_Bkg, 0, 0);
     //Отрисовка площади
     CArea::AreaControl.OnRender(Surf_Display,
-        CCamera::CameraControl.GetX(),
-        CCamera::CameraControl.GetY()
+        -CCamera::CameraControl.GetX(),
+        -CCamera::CameraControl.GetY()
     );
     //Отрисовка всех сущностей
     for(int i=0;i<CEntity::EntityList.size();i++){

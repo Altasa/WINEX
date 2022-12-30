@@ -10,17 +10,25 @@ void CApp::OnExit(){
 //Нажатие клавиши клавиатуры
 void CApp::OnKeyDown(SDL_Keycode sym, Uint16 unicode){
     switch(sym){
-        case SDLK_UP:
-            CCamera::CameraControl.OnMove(0, 5);
-            break;
-        case SDLK_DOWN:
-            CCamera::CameraControl.OnMove(0, -5);
-            break;
         case SDLK_LEFT:
-            CCamera::CameraControl.OnMove(5, 0);
+            Player1.MoveLeft = true;
             break;
         case SDLK_RIGHT:
-            CCamera::CameraControl.OnMove(-5, 0);
+            Player1.MoveRight = true;
+            break;
+        default:{
+            
+        }
+    }
+}
+//Отпускание клавиши клавиатуры
+void CApp::OnKeyUp(SDL_Keycode sym, Uint16 unicode){
+    switch(sym){
+        case SDLK_LEFT:
+            Player1.MoveLeft = false;
+            break;
+        case SDLK_RIGHT:
+            Player1.MoveRight = false;
             break;
         default:{
             

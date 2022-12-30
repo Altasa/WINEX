@@ -5,7 +5,7 @@
 using namespace std;
 //Подключение классов Тайл, Поверхность
 #include "CTile.h"
-#include "../CSurface.h"
+#include "../CANIM_class/CSurface.h"
 //Класс Карта
 class CMap{
     public:
@@ -22,5 +22,8 @@ class CMap{
         bool OnLoad(const char* File);
         //Отрисовка карты
         void OnRender(SDL_Surface* Surf_Display, int MapX, int MapY);
+    public:
+        //Вычислить адрес тайла в карте
+        CTile* GetTile(int X, int Y);
 };
 #endif

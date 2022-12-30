@@ -1,4 +1,5 @@
 #include "CMap.h"
+#include <cstdio>
 //Конструктор карты
 CMap::CMap(){
     Surf_Tileset=NULL;
@@ -54,4 +55,14 @@ void CMap::OnRender(SDL_Surface* Surf_Display, int MapX, int MapY){
             ID++;
         }
     }
+}
+//Вычислить адрес тайла в карте
+CTile* CMap::GetTile(int X, int Y){
+    int ID=0;
+    ID=X/TILE_SIZE;
+    ID=ID+(MAP_WIDTH * (Y/TILE_SIZE));
+    if(ID<0 || ID>=TileList.size()){
+        return NULL;
+    }
+    return &TileList[ID];
 }

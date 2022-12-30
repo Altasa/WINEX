@@ -24,5 +24,10 @@ class CArea{
         void OnRender(SDL_Surface* Surf_Display, int CameraX, int CameraY);
         //Очистка площади
         void OnCleanup();
+    public:
+        //Вычислить адрес карты
+        CMap* GetMap(int X, int Y);
+        //Вычислить адрес тайла в площади
+        CTile* GetTile(int X, int Y);
 };
 #endif

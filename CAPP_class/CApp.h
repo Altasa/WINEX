@@ -4,17 +4,19 @@
 //Установки параметров приложения
 #include "../Define.h"
 //Подключение класса Поверхность
-#include "../CSurface.h"
+#include "../CANIM_class/CSurface.h"
 //Подключение класса Анимация
-#include "../CAnimation.h"
+#include "../CANIM_class/CAnimation.h"
 //Подключение класса Событие
 #include "../CEvent.h"
 //Подключение класса Сущность
-#include "../CEntity.h"
+#include "../CENTITY_class/CEntity.h"
+//Подключение класса Игрок
+#include "../CENTITY_class/CPlayer.h"
 //Подключение класса Площадь
 #include "../CMAP_class/CArea.h"
 //Подключение класса Камера
-#include "../CCamera.h"
+#include "../CANIM_class/CCamera.h"
 //Класс Приложение
 class CApp : public CEvent{
     //Поля класса
@@ -27,9 +29,9 @@ class CApp : public CEvent{
         SDL_Surface* Surf_Display;
         //Поверхность фона
         SDL_Surface* Surf_Bkg;
-        //Сущности приложения
-        CEntity Entity1;
-        CEntity Entity2;
+        //Игроки
+        CPlayer Player1;
+        CPlayer Player2;
         
     //Методы класса
     public:
@@ -54,5 +56,7 @@ class CApp : public CEvent{
     //Методы приложения
         //Нажатие клавиши клавиатуры
         void OnKeyDown(SDL_Keycode sym, Uint16 unicode);
+        //Отпускание клавиши клавиатуры
+        void OnKeyUp(SDL_Keycode sym, Uint16 unicode);
 };
 #endif

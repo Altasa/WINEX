@@ -36,7 +36,7 @@ void CCamera::SetPos(int X, int Y){
     this->X=X;
     this->Y=Y;
 }
-void CCamera::SetTarget(int* X, int* Y){
+void CCamera::SetTarget(float* X, float* Y){
     TargetX=X;
     TargetY=Y;
 }
