@@ -13,8 +13,8 @@ bool CApp::OnInit(){
         "CApp.exe",
         SDL_WINDOWPOS_UNDEFINED, 
         SDL_WINDOWPOS_UNDEFINED,
-        SCREEN_WIDTH,
-        SCREEN_HEIGHT, 
+        WWIDTH,
+        WHEIGHT,
         SDL_WINDOW_SHOWN
     );
     if(Window==NULL){
@@ -23,10 +23,13 @@ bool CApp::OnInit(){
     //Получение поверхности окна
     Surf_Display=SDL_GetWindowSurface(Window);
     //Загрузка поверхностей изображений
-    if(Entity1.OnLoad("PNG_Imgs/entity1.png", Surf_Display, 64, 64, 7)==false){
+    if((Surf_Bkg=CSurface::OnLoad("PNG_imgs/img1.png", Surf_Display)) == NULL){
         return false;
     }
-    if(Entity2.OnLoad("PNG_Imgs/entity2.png", Surf_Display, 64, 64, 7)==false){
+    if(Entity1.OnLoad("PNG_imgs/entity1.png", Surf_Display, 64, 64, 7)==false){
+        return false;
+    }
+    if(Entity2.OnLoad("PNG_imgs/entity2.png", Surf_Display, 64, 64, 7)==false){
         return false;
     }
     //Установка координат сущностей, по умолчанию 0, 0
@@ -34,5 +37,9 @@ bool CApp::OnInit(){
     //Запись сущностей в список
     CEntity::EntityList.push_back(&Entity1);
     CEntity::EntityList.push_back(&Entity2);
+    //Загрузка площади
+    if(CArea::AreaControl.OnLoad("maps/1.area", Surf_Display)==false){
+        return false;
+    }
     return true;
 }

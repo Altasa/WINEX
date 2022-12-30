@@ -9,7 +9,7 @@ OS MS Win10x64
 
 IDE MS VS Code
 
-Компилятор TDM-GCC-64-10.3.0-2
+COMPILER TDM-GCC-64-10.3.0-2
 https://jmeubank.github.io/tdm-gcc/
 
 LIBRARIES

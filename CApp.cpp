@@ -18,6 +18,16 @@
 //Подключение класса Сущность
 #include "CEntity.h"
 #include "CEntity.cpp"
+//Подключение класса Площадь
+#include "CMAP_class/CArea.h"
+#include "CMAP_class/CArea.cpp"
+#include "CMAP_class/CMap.h"
+#include "CMAP_class/CMap.cpp"
+#include "CMAP_class/CTile.h"
+#include "CMAP_class/CTile.cpp"
+//Подключение класса Камера
+#include "CCamera.h"
+#include "CCamera.cpp"
 //Определение конструктора приложения
 CApp::CApp(){
     //Флаг выполнения исполнителя процесса
@@ -26,9 +36,8 @@ CApp::CApp(){
     Window=NULL;
     //Поверхность окна
     Surf_Display=NULL;
-    //Размер окна ширина высота
-    SCREEN_WIDTH=320;
-    SCREEN_HEIGHT=320; 
+    //Поверхность фона
+    Surf_Bkg=NULL;
 }
 //Определение исполнителя процесса
 int CApp::OnExecute(){

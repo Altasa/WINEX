@@ -1,0 +1,38 @@
+#ifndef _CCAMERA_H_
+    #define _CCAMERA_H_
+#include <SDL.h>
+#include "Define.h"
+enum{
+    TARGET_MODE_NORMAL=0,
+    TARGET_MODE_CENTER
+};
+class CCamera{
+    public:
+        //Контроль камеры
+        static CCamera CameraControl;
+    private:
+        //Координаты камеры на площади карт
+        int X;
+        int Y;
+        //Координаты цели камеры
+        int* TargetX;
+        int* TargetY;
+    public:
+        //Режим нацеливания камеры
+        int TargetMode;
+    public:
+        //Конструктор камеры
+        CCamera();
+    public:
+        //Перемещение камеры
+        void OnMove(int MoveX, int MoveY);
+    public:
+        //Нацеливание камеры
+        int GetX();
+        int GetY();
+    public:
+        //Установка координат камеры и цели
+        void SetPos(int X, int Y);
+        void SetTarget(int* X, int* Y);
+};
+#endif
