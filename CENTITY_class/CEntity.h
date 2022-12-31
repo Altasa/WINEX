@@ -47,6 +47,7 @@ class CEntity{
         //Свойства сущности
         int Flags;
     protected:
+        bool CanJump;
         //Переменные движения сущности
         float SpeedX;
         float SpeedY;
@@ -82,11 +83,12 @@ class CEntity{
         //Опредилитель анимации
         virtual void OnAnimate();
         //Событие столкновения
-        virtual void OnCollision(CEntity* Entity);
+        virtual bool OnCollision(CEntity* Entity);
     public:
         //Передвижение сущности
         void OnMove(float MoveX, float MoveY);
         void StopMove();
+        bool Jump();
     public:
         //Определитель столкновения
         bool Collides(int oX, int oY, int oW, int oH);

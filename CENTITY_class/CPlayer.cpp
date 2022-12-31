@@ -26,6 +26,8 @@ void CPlayer::OnAnimate(){
     }
     CEntity::OnAnimate();
 }
-void CPlayer::OnCollision(CEntity* Entity){
-
+//Обработка столкновения
+bool CPlayer::OnCollision(CEntity* Entity){
+    Jump();
+    return true;
 }

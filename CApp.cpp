@@ -30,11 +30,12 @@
 #include "CEvent.h"
 #include "CEvent.cpp"
 //Подключение класса Сущность
-#include "../CENTITY_class/CEntity.h"
-#include "../CENTITY_class/CEntity.cpp"
+#include "CENTITY_class/CEntity.h"
+#include "CENTITY_class/CEntity.cpp"
+#include "CENTITY_class/CEntityCol.cpp"
 //Подключение класса Игрок
-#include "../CENTITY_class/CPlayer.h"
-#include "../CENTITY_class/CPlayer.cpp"
+#include "CENTITY_class/CPlayer.h"
+#include "CENTITY_class/CPlayer.cpp"
 //Определение конструктора приложения
 CApp::CApp(){
     //Флаг выполнения исполнителя процесса

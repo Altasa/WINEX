@@ -16,6 +16,9 @@ void CApp::OnKeyDown(SDL_Keycode sym, Uint16 unicode){
         case SDLK_RIGHT:
             Player1.MoveRight = true;
             break;
+        case SDLK_SPACE:
+            Player1.Jump();
+            break;
         default:{
             
         }

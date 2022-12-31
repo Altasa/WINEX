@@ -2,13 +2,6 @@
 using namespace std;
 //Список сущностей
 vector<CEntity*> CEntity::EntityList;
-//Список столкновений
-vector<CEntityCol> CEntityCol::EntityColList;
-//Определение конструктора столкновения
-CEntityCol::CEntityCol(){
-    EntityA=NULL;
-    EntityB=NULL;
-}
 //Определение конструктора сущности
 CEntity::CEntity(){
     //Поверхность
@@ -27,13 +20,14 @@ CEntity::CEntity(){
     //Параметры
     Dead=false;
     Flags=ENTITY_FLAG_GRAVITY;
+    CanJump=false;
     //Параметры движения
     SpeedX=0;
     SpeedY=0;
     AccelX=0;
     AccelY=0;
-    MaxSpeedX=5;
-    MaxSpeedY=5;
+    MaxSpeedX=10;
+    MaxSpeedY=10;
     //Параметры анимации
     CurrentFrameCol=0;
     CurrentFrameRow=0;
@@ -110,11 +104,12 @@ void CEntity::OnAnimate(){
     Anim_Control.OnAnimate();
 }
 //Расчет столкновения
-void CEntity::OnCollision(CEntity* Entity){
-
+bool CEntity::OnCollision(CEntity* Entity){
+    return true;
 }
 //Расчет движения
 void CEntity::OnMove(float MoveX, float MoveY){
+    CanJump=false;
     if(MoveX == 0 && MoveY == 0){
         return;
     }
@@ -152,6 +147,9 @@ void CEntity::OnMove(float MoveX, float MoveY){
             if(PosValid((int)(X), (int)(Y+NewY))){
                 Y+=NewY;
             }else{
+                if(MoveY>0){
+                    CanJump=true;
+                }
                 SpeedY=0;
             }
         }
@@ -184,6 +182,14 @@ void CEntity::StopMove(){
         AccelX=0;
         SpeedX=0;
     }
+}
+//Прыжок
+bool CEntity::Jump(){
+    if(CanJump==false){
+        return false;
+    }
+    SpeedY=-MaxSpeedY;
+    return true;
 }
 //Проверка столкновения
 bool CEntity::Collides(int oX, int oY, int oW, int oH){
