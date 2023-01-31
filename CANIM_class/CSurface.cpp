@@ -1,4 +1,5 @@
 #include "CSurface.h"
+#include <iostream>
 //Определение конструктора
 CSurface::CSurface(){
 
@@ -20,8 +21,6 @@ SDL_Surface* CSurface::OnLoad(const char* File, SDL_Surface* Surf_Display){
     if(Surf_Temp==NULL){
         return NULL;
     }
-    //Приведение поверхности к формату окна
-    Surf_Temp=SDL_ConvertSurface(Surf_Temp, Surf_Display->format, 0);
     return Surf_Temp;
 }
 //Определение отображения поверхности

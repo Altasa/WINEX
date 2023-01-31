@@ -2,15 +2,16 @@
 //Определение конструктора параметров анимации
 CAnimation::CAnimation(){
     //Текущий кадр
-    CurrentFrame= -1;
+    CurrentFrame=   -1;
     //Всего кадров, на 1 меньше чем факт
-    MaxFrames=    0;
+    MaxFrames=      0;
+    GlobalMaxFrames=0;
     //Направление кадров
-    FrameInc=     1;
+    FrameInc=       1;
     //Частота кадров
-    //milliseconds,fps 40=25 100=10
-    FrameRate=    100;
-    OldTime=      0;
+    //milliseconds,fps 40=25 
+    FrameRate=      40;
+    OldTime=        0;
     //Параметр двунаправленной анимации
     Oscillate=    false;
 }

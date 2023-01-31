@@ -5,6 +5,7 @@ CCamera CCamera::CameraControl;
 CCamera::CCamera(){
     X=Y=0;
     TargetX=TargetY=NULL;
+    CorrectX=CorrectY=0;
     TargetMode=TARGET_MODE_NORMAL;
 }
 //Изменение координат камеры
@@ -36,7 +37,10 @@ void CCamera::SetPos(int X, int Y){
     this->X=X;
     this->Y=Y;
 }
-void CCamera::SetTarget(float* X, float* Y){
+//Установка камеры на цель с поправками центровки
+void CCamera::SetTarget(float* X, float* Y, float CorrX, float CorrY){
     TargetX=X;
     TargetY=Y;
+    CorrectX=CorrX;
+    CorrectY=CorrY;
 }

@@ -17,6 +17,8 @@
 #include "../CMAP_class/CArea.h"
 //Подключение класса Камера
 #include "../CANIM_class/CCamera.h"
+//Подключение класса Звук
+#include "../CSoundBank.h"
 //Класс Приложение
 class CApp : public CEvent{
     //Поля класса
@@ -32,6 +34,9 @@ class CApp : public CEvent{
         //Игроки
         CPlayer Player1;
         CPlayer Player2;
+        //Звуки
+        int SoundA;
+        int SoundB;
         
     //Методы класса
     public:

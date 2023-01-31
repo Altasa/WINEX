@@ -18,6 +18,10 @@ class CCamera{
         float* TargetX;
         float* TargetY;
     public:
+        //Поправки центровки камеры
+        float CorrectX;
+        float CorrectY;
+    public:
         //Режим нацеливания камеры
         int TargetMode;
     public:
@@ -33,6 +37,7 @@ class CCamera{
     public:
         //Установка координат камеры и цели
         void SetPos(int X, int Y);
-        void SetTarget(float* X, float* Y);
+        //Установка камеры на цель с поправками центровки
+        void SetTarget(float* X, float* Y, float CorrX, float CorrY);
 };
 #endif

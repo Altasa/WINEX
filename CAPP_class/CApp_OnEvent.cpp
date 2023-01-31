@@ -12,12 +12,15 @@ void CApp::OnKeyDown(SDL_Keycode sym, Uint16 unicode){
     switch(sym){
         case SDLK_LEFT:
             Player1.MoveLeft = true;
+            CSoundBank::SoundControl.Play(SoundB);
             break;
         case SDLK_RIGHT:
             Player1.MoveRight = true;
+            CSoundBank::SoundControl.Play(SoundB);
             break;
         case SDLK_SPACE:
             Player1.Jump();
+            CSoundBank::SoundControl.Play(SoundA);
             break;
         default:{
             

@@ -16,6 +16,7 @@
 				//Подключение библиотек 
 				"-L${fileDirname}\\lib",
 				"-lSDL2_image",
+				"-lSDL2_mixer",
 				"-lSDL2main",
 				"-lSDL2",
 				//Отключение консольного терминала

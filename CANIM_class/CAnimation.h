@@ -8,11 +8,13 @@ class CAnimation{
         int CurrentFrame; //Номер текущего кадра
         int FrameInc; //Направляющий
     private:
-        int FrameRate; //milliseconds
         long OldTime; //Время кадра
     public:
-        //Всего кадров, на 1 меньше чем факт
+        int FrameRate; //milliseconds
+        //Всего кадров текущей анимации, на 1 меньше чем факт
         int MaxFrames;
+        //Всего кадров анимации сущности, на 1 меньше чем факт
+        int GlobalMaxFrames;
         //Параметр двунаправленной анимации
         bool Oscillate;
     public:

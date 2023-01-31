@@ -36,6 +36,9 @@
 //Подключение класса Игрок
 #include "CENTITY_class/CPlayer.h"
 #include "CENTITY_class/CPlayer.cpp"
+//Подключение класса Звук
+#include "CSoundBank.h"
+#include "CSoundBank.cpp"
 //Определение конструктора приложения
 CApp::CApp(){
     //Флаг выполнения исполнителя процесса

@@ -17,13 +17,7 @@ void CPlayer::OnRender(SDL_Surface* Surf_Display){
 void CPlayer::OnCleanup(){
     CEntity::OnCleanup();
 }
-//Установка анимации на ходьбу и покой
 void CPlayer::OnAnimate(){
-    if(SpeedX != 0){
-        Anim_Control.MaxFrames=7;
-    }else{
-        Anim_Control.MaxFrames=0;
-    }
     CEntity::OnAnimate();
 }
 //Обработка столкновения

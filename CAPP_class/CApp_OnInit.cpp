@@ -8,6 +8,10 @@ bool CApp::OnInit(){
     if(CSurface::ImgInit() == false){
         return false;
     }
+    //Подключение компонентов библиотеки SDL2_mixer
+    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096)<0){
+        return false;
+    }
     //Создание окна приложения
     Window = SDL_CreateWindow(
         "CApp.exe",
@@ -37,11 +41,18 @@ bool CApp::OnInit(){
     //Запись сущностей в список
     CEntity::EntityList.push_back(&Player1);
     CEntity::EntityList.push_back(&Player2);
-    //Установка камеры на первого игрока
+    //Установка камеры на центр первого игрока
     CCamera::CameraControl.TargetMode=TARGET_MODE_CENTER;
-    CCamera::CameraControl.SetTarget(&Player1.X, &Player1.Y);
+    CCamera::CameraControl.SetTarget(&Player1.X, &Player1.Y, Player1.Width/2, Player1.Height/2);
     //Загрузка площади
     if(CArea::AreaControl.OnLoad("maps/1.area", Surf_Display)==false){
+        return false;
+    }
+    //Загрузка звуков
+    if((SoundA=CSoundBank::SoundControl.OnLoad("sounda.wav"))==-1){
+        return false;
+    }
+    if((SoundB=CSoundBank::SoundControl.OnLoad("soundb.wav"))==-1){
         return false;
     }
     return true;

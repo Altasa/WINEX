@@ -16,5 +16,8 @@ void CApp::OnCleanup(){
     CEntity::EntityList.clear();
     //Очистка памяти площади
     CArea::AreaControl.OnCleanup();
+    //Очистка памяти звуков
+    CSoundBank::SoundControl.OnCleanup();
+    Mix_CloseAudio();
     SDL_Quit();
 }

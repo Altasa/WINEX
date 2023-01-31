@@ -47,6 +47,9 @@ bool CEntity::OnLoad(const char* File, SDL_Surface* Surf_Display, int Width, int
     this->Width=Width;
     this->Height=Height;
     Anim_Control.MaxFrames=MaxFrames;
+    Anim_Control.GlobalMaxFrames=MaxFrames;
+    //Установка скорости анимации
+    Anim_Control.FrameRate=800/(MaxFrames+1);
     return true;
 }
 //Определение логики сущности
@@ -80,9 +83,10 @@ void CEntity::OnRender(SDL_Surface* Surf_Display){
         return;
     }
     // * - умножение
+    //С поправкой на центровку цели
     CSurface::OnDraw(Surf_Display, Surf_Entity,
-        X - CCamera::CameraControl.GetX(),
-        Y - CCamera::CameraControl.GetY(),
+        X - CCamera::CameraControl.GetX()-CCamera::CameraControl.CorrectX,
+        Y - CCamera::CameraControl.GetY()-CCamera::CameraControl.CorrectY,
         CurrentFrameCol * Width,
         (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height,
         Width, Height);
@@ -100,6 +104,12 @@ void CEntity::OnAnimate(){
         CurrentFrameCol=0;
     }else if(MoveRight){
         CurrentFrameCol=1;
+    }
+    //Установка анимации на ходьбу и покой
+    if(SpeedX != 0){
+        Anim_Control.MaxFrames=Anim_Control.GlobalMaxFrames;
+    }else{
+        Anim_Control.MaxFrames=0;
     }
     Anim_Control.OnAnimate();
 }

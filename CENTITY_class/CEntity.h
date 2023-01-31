@@ -10,7 +10,7 @@ using namespace std;
 //Тип
 enum{
     ENTITY_TYPE_GENERIC=0,
-    ENTITY_TYPE_PLLAYER
+    ENTITY_TYPE_PLAYER
 };
 //Свойства
 enum{
@@ -28,6 +28,7 @@ class CEntity{
     protected:
         //Параметры анимации сущности
         CAnimation Anim_Control;
+    public:
         //Поверхность сущности
         SDL_Surface* Surf_Entity;
     public:

@@ -12,6 +12,8 @@ OS MS Win10x64
 
 IDE MS VS Code
 
+https://code.visualstudio.com/https://code.visualstudio.com/
+
 COMPILER TDM-GCC-64-10.3.0-2
 
 https://jmeubank.github.io/tdm-gcc/
@@ -25,3 +27,7 @@ https://github.com/libsdl-org/SDL/releases/tag/release-2.26.1
 SDL2_image-devel-2.6.2-VC x64
 
 https://github.com/libsdl-org/SDL_image/releases/tag/release-2.6.2
+
+SDL2_mixer-devel-2.6.2-VC x64
+
+https://github.com/libsdl-org/SDL_mixer/releases/tag/release-2.6.2
